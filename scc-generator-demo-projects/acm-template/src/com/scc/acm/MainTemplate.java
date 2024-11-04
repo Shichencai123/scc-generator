@@ -8,14 +8,14 @@ import java.util.Scanner;
  * Description: ACM 输入模板（多数之和）
  *
  * @Date: 2024/11/1 22:20
- * @Author: ${author}
+ * @Author: scc
  */
 public class MainTemplate {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        while (sc.hasNext()) {
+        while(sc.hasNext()) {
             //读取输入元素个数
             int n = sc.nextInt();
 
@@ -32,7 +32,7 @@ public class MainTemplate {
                 sum += num;
             }
 
-            System.out.println("${output}: " + sum);
+            System.out.println("sum" + sum);
         }
     }
 }
