@@ -7,7 +7,7 @@ import java.io.File;
 import java.util.List;
 
 /**
- * className:  ListCommand
+ * className:  ListCommand.java.ftl
  * Package:  com.scc.cli.command
  * Description:
  *

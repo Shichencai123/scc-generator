@@ -14,7 +14,6 @@ import cn.hutool.json.JSONUtil;
  */
 public class MetaManager {
     private static volatile Meta meta;
-
     private MetaManager(){}
 
     public static Meta getMetaObject() {

@@ -7,7 +7,7 @@ import picocli.CommandLine;
 import java.lang.reflect.Field;
 
 /**
- * className:  ConfigCommand
+ * className:  ConfigCommand.java.ftl
  * Package:  com.scc.cli.command
  * Description:
  *

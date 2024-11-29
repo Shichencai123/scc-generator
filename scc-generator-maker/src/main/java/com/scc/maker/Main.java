@@ -1,7 +1,6 @@
 package com.scc.maker;
 
 import cn.hutool.core.io.FileUtil;
-import cn.hutool.core.io.resource.ClassPathResource;
 import cn.hutool.core.util.StrUtil;
 import com.scc.maker.generator.file.DynamicFileGenerator;
 import com.scc.maker.meta.Meta;

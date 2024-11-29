@@ -12,7 +12,7 @@ import java.io.File;
 import java.util.concurrent.Callable;
 
 /**
- * className:  GenerateCommand
+ * className:  GenerateCommand.java.ftl
  * Package:  com.scc.cli.command
  * Description:
  *

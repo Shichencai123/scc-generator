@@ -72,7 +72,7 @@
                         </descriptorRefs>
                         <archive>
                             <manifest>
-                                <mainClass>com.scc.maker.Main</mainClass> &lt;!&ndash; 主类的完整类名 &ndash;&gt;
+                                <mainClass>com.scc.maker.generator.MainGeneratorGenerator</mainClass> &lt;!&ndash; 主类的完整类名 &ndash;&gt;
                             </manifest>
                         </archive>
                     </configuration>
