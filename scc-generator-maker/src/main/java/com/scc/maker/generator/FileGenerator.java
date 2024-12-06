@@ -1,4 +1,4 @@
-package com.scc.maker.generator.file;
+package com.scc.maker.generator;
 
 import com.scc.maker.model.DataModel;
 import freemarker.template.TemplateException;
@@ -28,6 +28,6 @@ public class FileGenerator {
         DataModel.setLoop(false);
         DataModel.setAuthor("hello world!");
         DataModel.setOutputText("sum =");
-        DynamicFileGenerator.doGenerate(srcPath, targetPath, DataModel);
+        DynamicGenerator.doGenerate(srcPath, targetPath, DataModel);
     }
 }

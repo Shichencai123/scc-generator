@@ -1,4 +1,4 @@
-package com.scc.maker.generator.file;
+package com.scc.maker.generator;
 
 import cn.hutool.core.io.FileUtil;
 

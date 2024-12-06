@@ -1,2 +1,2 @@
 #!/bin/bash
-java -jar scc-generator-basic-1.0-SNAPSHOT.jar "$@"
+java -jar D:\projects\web\scc-generator\scc-generator-maker\target\scc-generator-maker-1.0-SNAPSHOT.jar "$@"
