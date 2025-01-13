@@ -1,5 +1,8 @@
 package com.scc.maker.generator;
 
+import cn.hutool.core.io.FileUtil;
+import cn.hutool.core.io.resource.ClassPathResource;
+import cn.hutool.core.util.StrUtil;
 import com.scc.maker.meta.Meta;
 import com.scc.maker.meta.MetaManager;
 import freemarker.template.TemplateException;
@@ -15,82 +18,80 @@ import java.io.IOException;
  * @Author: shicc
  */
 public class MainGenerator {
-    /**
-     * 生成
-     *
-     * @param model 数据模型
-     * @throws TemplateException
-     * @throws IOException
-     */
-    public static void doGenerate(Object model) throws TemplateException, IOException {
-        String inputRootPath = "D:/projects/web/scc-generator/scc-generator-maker";
-        String outputRootPath = "D:/projects/web/scc-generator/scc-generator-demo-projects/acm-template-pro";
+    public static void main(String[] args) throws TemplateException, IOException, InterruptedException {
 
+        Meta model = MetaManager.getMetaObject();
+        System.out.println(model);
+        // 输出根路径
+        String projectPath = System.getProperty("user.dir");
+        String outputRootPath = projectPath + File.separator + "generated" + File.separator + model.getName();
+        if (!FileUtil.exist(outputRootPath)) {
+            FileUtil.mkdir(outputRootPath);
+        }
+        // 读取 resources 目录
+        ClassPathResource classPathResource = new ClassPathResource("");
+        String inputRootPath = classPathResource.getAbsolutePath();
+        // Java 包基础路径
+        String outputBasePackage = model.getBasePackage();
+        String outputBasePackagePath = StrUtil.join("/", StrUtil.split(outputBasePackage, "."));
+      /*  String outputBaseJavaPackagePath = output + File.separator + "src/main/java/" + outputBasePackagePath;*/
         String inputPath;
         String outputPath;
 
-        inputPath = new File(inputRootPath, "src/main/java/com/scc/acm/MainTemplate.java.ftl").getAbsolutePath();
-        outputPath = new File(outputRootPath, "src/main/java/com/scc/acm/MainTemplate.java.ftl").getAbsolutePath();
-        DynamicGenerator.doGenerate(inputPath, outputPath, model);
-
-        inputPath = new File(inputRootPath, "src/main/resources/templates/java/cli/command/ConfigCommand.java.ftl").getAbsolutePath();
+        inputPath = new File(inputRootPath, "templates/java/cli/command/ConfigCommand.java.ftl").getAbsolutePath();
         outputPath = new File(outputRootPath, "src/main/java/com/scc/cli/command/ConfigCommand.java").getAbsolutePath();
         DynamicGenerator.doGenerate(inputPath, outputPath, model);
 
-        inputPath = new File(inputRootPath, "src/main/resources/templates/java/cli/command/GenerateCommand.java.ftl").getAbsolutePath();
+        inputPath = new File(inputRootPath, "templates/java/cli/command/GenerateCommand.java.ftl").getAbsolutePath();
         outputPath = new File(outputRootPath, "src/main/java/com/scc/cli/command/GenerateCommand.java").getAbsolutePath();
         DynamicGenerator.doGenerate(inputPath, outputPath, model);
 
-        inputPath = new File(inputRootPath, "src/main/resources/templates/java/cli/command/ListCommand.java.ftl").getAbsolutePath();
+        inputPath = new File(inputRootPath, "templates/java/cli/command/ListCommand.java.ftl").getAbsolutePath();
         outputPath = new File(outputRootPath, "src/main/java/com/scc/cli/command/ListCommand.java").getAbsolutePath();
         DynamicGenerator.doGenerate(inputPath, outputPath, model);
 
-        inputPath = new File(inputRootPath, "src/main/resources/templates/java/cli/CommandExecutor.java.ftl").getAbsolutePath();
+        inputPath = new File(inputRootPath, "templates/java/cli/CommandExecutor.java.ftl").getAbsolutePath();
         outputPath = new File(outputRootPath, "src/main/java/com/scc/cli/CommandExecutor.java").getAbsolutePath();
         DynamicGenerator.doGenerate(inputPath, outputPath, model);
 
-        inputPath = new File(inputRootPath, "src/main/resources/templates/java/generator/DynamicGenerator.java.ftl").getAbsolutePath();
+        inputPath = new File(inputRootPath, "templates/java/generator/DynamicGenerator.java.ftl").getAbsolutePath();
         outputPath = new File(outputRootPath, "src/main/java/com/scc/generator/DynamicFileGenerator.java").getAbsolutePath();
         DynamicGenerator.doGenerate(inputPath, outputPath, model);
 
-        inputPath = new File(inputRootPath, "src/main/resources/templates/java/generator/FileGenerator.java.ftl").getAbsolutePath();
-        outputPath = new File(outputRootPath, "src/main/java/com/scc/generator/FileGenerator.java").getAbsolutePath();
-        DynamicGenerator.doGenerate(inputPath, outputPath, model);
-
-        inputPath = new File(inputRootPath, "src/main/resources/templates/java/generator/JarGenerator.java.ftl").getAbsolutePath();
+        inputPath = new File(inputRootPath, "templates/java/generator/JarGenerator.java.ftl").getAbsolutePath();
         outputPath = new File(outputRootPath, "src/main/java/com/scc/generator/JarGenerator.java").getAbsolutePath();
         DynamicGenerator.doGenerate(inputPath, outputPath, model);
 
-        inputPath = new File(inputRootPath, "src/main/resources/templates/java/generator/MainGenerator.java.ftl").getAbsolutePath();
+        inputPath = new File(inputRootPath, "templates/java/generator/MainGenerator.java.ftl").getAbsolutePath();
         outputPath = new File(outputRootPath, "src/main/java/com/scc/generator/MainGenerator.java").getAbsolutePath();
         DynamicGenerator.doGenerate(inputPath, outputPath, model);
 
-        inputPath = new File(inputRootPath, "src/main/resources/templates/java/generator/StaticGenerator.java.ftl").getAbsolutePath();
+        inputPath = new File(inputRootPath, "templates/java/generator/StaticGenerator.java.ftl").getAbsolutePath();
         outputPath = new File(outputRootPath, "src/main/java/com/scc/generator/StaticFileGenerator.java").getAbsolutePath();
         DynamicGenerator.doGenerate(inputPath, outputPath, model);
 
-        inputPath = new File(inputRootPath, "src/main/resources/templates/java/model/DataModel.java.ftl").getAbsolutePath();
+        inputPath = new File(inputRootPath, "templates/java/model/DataModel.java.ftl").getAbsolutePath();
         outputPath = new File(outputRootPath, "src/main/java/com/scc/model/DataModel.java").getAbsolutePath();
         DynamicGenerator.doGenerate(inputPath, outputPath, model);
 
-        inputPath = new File(inputRootPath, "src/main/resources/templates/java/Main.java.ftl").getAbsolutePath();
+        inputPath = new File(inputRootPath, "templates/java/Main.java.ftl").getAbsolutePath();
         outputPath = new File(outputRootPath, "src/main/java/com/scc/Main.java").getAbsolutePath();
-        StaticFileGenerator.copyFileByHutool(inputPath, outputPath);
+        DynamicGenerator.doGenerate(inputPath, outputPath, model);
 
-        inputPath = new File(inputRootPath, "src/main/resources/templates/pom.xml.ftl").getAbsolutePath();
+        inputPath = new File(inputRootPath, "templates/pom.xml.ftl").getAbsolutePath();
         outputPath = new File(outputRootPath, "pom.xml").getAbsolutePath();
         DynamicGenerator.doGenerate(inputPath, outputPath, model);
-    }
 
-    public static void main(String[] args) throws TemplateException, IOException {
-        doGenerate(MetaManager.getMetaObject());
 
-        String outputRootPath = "D:/projects/web/scc-generator/scc-generator-demo-projects/acm-template-pro";
 
-        Meta metaObject = MetaManager.getMetaObject();
+        // 构建 jar 包
+        JarGenerator.doGenerate(outputRootPath);
+        // 封装脚本
+        String shellOutputFilePath = outputRootPath + File.separator + "generator";
+        String jarName = String.format("%s-%s-jar-with-dependencies.jar", model.getName(), model.getVersion());
+        String jarPath = "target/" + jarName;
+        ScriptGenerator.doGenerate(shellOutputFilePath, jarPath);
 
-        String shellOutputPath = outputRootPath + File.separator + "generator";
-        String jarPath = String.format("%s-%s.jar", metaObject.getName(), metaObject.getVersion());
-        ScriptGenerator.doGenerate(shellOutputPath, jarPath);
+
     }
 }

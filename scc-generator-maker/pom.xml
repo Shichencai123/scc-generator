@@ -48,6 +48,11 @@
             <artifactId>picocli</artifactId>
             <version>4.7.5</version>
         </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>30.0-jre</version>
+        </dependency>
     </dependencies>
 
 <!--    jar包工具-->

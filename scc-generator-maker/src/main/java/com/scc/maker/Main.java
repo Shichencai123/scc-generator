@@ -3,7 +3,6 @@ package com.scc.maker;
 import com.scc.maker.generator.MainGenerator;
 import com.scc.maker.meta.MetaManager;
 import freemarker.template.TemplateException;
-
 import java.io.IOException;
 
 /**
@@ -16,6 +15,6 @@ import java.io.IOException;
  */
 public class Main {
     public static void main(String[] args) throws TemplateException, IOException {
-        MainGenerator.doGenerate(MetaManager.getMetaObject());
+        //MainGenerator.doGenerate(MetaManager.getMetaObject());
     }
 }
