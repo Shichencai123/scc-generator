@@ -1,4 +1,4 @@
-package ${basePackage}.maker.generator;
+package ${basePackage}.generator;
 
 import java.io.BufferedReader;
 import java.io.File;

@@ -1,4 +1,4 @@
-package com.scc.maker.generator.file;
+package ${basePackage}.generator;
 
 import cn.hutool.core.io.FileUtil;
 import freemarker.template.Configuration;
@@ -19,7 +19,7 @@ import java.io.Writer;
  * @Date: 2024/11/2 11:04
  * @Author: shicc
  */
-public class DynamicFileGenerator {
+public class DynamicGenerator {
     /**
      *
      * @param inputPath 模板文件输入路径

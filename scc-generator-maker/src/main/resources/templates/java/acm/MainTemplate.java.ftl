@@ -8,7 +8,7 @@ import java.util.Scanner;
  * Description: ACM 输入模板（多数之和）
  *
  * @Date: 2024/11/1 22:20
- * @Author: ${author?c}
+ * @Author: ${author}
  */
 public class MainTemplate {
 
@@ -34,7 +34,7 @@ public class MainTemplate {
                 sum += num;
             }
 
-            System.out.println("${outputText?c}" + sum);
+            System.out.println("${outputText!"sum="}" + sum);
 <#if loop??>
         }
 </#if>

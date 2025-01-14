@@ -6,81 +6,27 @@
   "author": "scc",
   "createTime": "2024-12-05",
   "fileConfig": {
-    "inputRootPath": "D:/projects/web/scc-generator/scc-generator-maker",
-    "outputRootPath": "D:/projects/web/scc-generator/scc-generator-demo-projects/acm-template-pro",
+    "inputRootPath": "D:/projects/web/scc-generator/generated/acm-template-pro",
+    "outputRootPath": "generated",
     "type": "dir",
     "files": [
       {
-        "inputPath": "src/main/resources/templates/java/cli/command/ConfigCommand.java.ftl",
-        "outputPath": "src/main/java/com/scc/cli/command/ConfigCommand.java",
+        "inputPath": "src/com/scc/acm/MainTemplate.java.ftl",
+        "outputPath": "src/com/scc/acm/MainTemplate.java",
         "type": "file",
         "generateType": "dynamic"
       },
       {
-        "inputPath": "src/main/resources/templates/java/cli/command/GenerateCommand.java.ftl",
-        "outputPath": "src/main/java/com/scc/cli/command/GenerateCommand.java",
+        "inputPath": ".gitignore",
+        "outputPath": ".gitignore",
         "type": "file",
-        "generateType": "dynamic"
+        "generateType": "static"
       },
       {
-        "inputPath": "src/main/resources/templates/java/cli/command/ListCommand.java.ftl",
-        "outputPath": "src/main/java/com/scc/cli/command/ListCommand.java",
+        "inputPath": "README.md",
+        "outputPath": "README.md",
         "type": "file",
-        "generateType": "dynamic"
-      },
-      {
-        "inputPath": "src/main/resources/templates/java/cli/CommandExecutor.java.ftl",
-        "outputPath": "src/main/java/com/scc/cli/CommandExecutor.java",
-        "type": "file",
-        "generateType": "dynamic"
-      },
-      {
-        "inputPath": "src/main/resources/templates/java/generator/DynamicGenerator.java.ftl",
-        "outputPath": "src/main/java/com/scc/generator/DynamicGenerator.java",
-        "type": "file",
-        "generateType": "dynamic"
-      },
-      {
-        "inputPath": "src/main/resources/templates/java/generator/FileGenerator.java.ftl",
-        "outputPath": "src/main/java/com/scc/generator/FileGenerator.java",
-        "type": "file",
-        "generateType": "dynamic"
-      },
-      {
-        "inputPath": "src/main/resources/templates/java/generator/JarGenerator.java.ftl",
-        "outputPath": "src/main/java/com/scc/generator/JarGenerator.java",
-        "type": "file",
-        "generateType": "dynamic"
-      },
-      {
-        "inputPath": "src/main/resources/templates/java/generator/StaticGenerator.java.ftl",
-        "outputPath": "src/main/java/com/scc/generator/StaticGenerator.java",
-        "type": "file",
-        "generateType": "dynamic"
-      },
-      {
-        "inputPath": "src/main/resources/templates/java/generator/MainGenerator.java.ftl",
-        "outputPath": "src/main/java/com/scc/generator/MainGenerator.java",
-        "type": "file",
-        "generateType": "dynamic"
-      },
-      {
-        "inputPath": "src/main/resources/templates/java/model/DataModel.java.ftl",
-        "outputPath": "src/main/java/com/scc/model/DataModel.java",
-        "type": "file",
-        "generateType": "dynamic"
-      },
-      {
-        "inputPath": "src/main/resources/templates/java/Main.java.ftl",
-        "outputPath": "src/main/java/com/scc/Main.java",
-        "type": "file",
-        "generateType": "dynamic"
-      },
-      {
-        "inputPath": "src/main/resources/templates/pom.xml.ftl",
-        "outputPath": "pom.xml",
-        "type": "file",
-        "generateType": "dynamic"
+        "generateType": "static"
       }
     ]
   },

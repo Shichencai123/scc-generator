@@ -1,4 +1,4 @@
-package com.scc.maker.generator.file;
+package ${basePackage}.generator;
 
 import com.scc.maker.model.DataModel;
 import freemarker.template.TemplateException;

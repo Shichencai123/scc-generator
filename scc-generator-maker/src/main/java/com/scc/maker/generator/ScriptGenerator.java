@@ -40,8 +40,7 @@ public class ScriptGenerator {
     }
 
     public static void main(String[] args) throws IOException {
-        String baseDir = System.getProperty("user.dir");
-        String outputPath = baseDir + File.separator + "generator";
-        doGenerate(outputPath, baseDir + File.separator + "scc-generator-demo-projects/acm-template-pro" + File.separator + "target" + File.separator + "acm-template-pro-1.0-SNAPSHOT.jar");
+        String outputPath = System.getProperty("user.dir") + File.separator + "generator";
+        doGenerate(outputPath, "");
     }
 }

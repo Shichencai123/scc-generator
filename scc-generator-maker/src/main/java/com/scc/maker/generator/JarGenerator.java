@@ -40,7 +40,7 @@ public class JarGenerator {
     }
 
     public static void main(String[] args) throws IOException, InterruptedException {
-        doGenerate("D:\\projects\\web\\scc-generator\\scc-generator-demo-projects\\acm-template-pro");
+        doGenerate("D:\\projects\\web\\scc-generator\\generated\\acm-template-pro-generator");
     }
 
 }

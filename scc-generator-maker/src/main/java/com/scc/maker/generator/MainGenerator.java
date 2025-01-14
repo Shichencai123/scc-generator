@@ -55,7 +55,7 @@ public class MainGenerator {
         DynamicGenerator.doGenerate(inputPath, outputPath, model);
 
         inputPath = new File(inputRootPath, "templates/java/generator/DynamicGenerator.java.ftl").getAbsolutePath();
-        outputPath = new File(outputRootPath, "src/main/java/com/scc/generator/DynamicFileGenerator.java").getAbsolutePath();
+        outputPath = new File(outputRootPath, "src/main/java/com/scc/generator/DynamicGenerator.java").getAbsolutePath();
         DynamicGenerator.doGenerate(inputPath, outputPath, model);
 
         inputPath = new File(inputRootPath, "templates/java/generator/JarGenerator.java.ftl").getAbsolutePath();
@@ -67,7 +67,7 @@ public class MainGenerator {
         DynamicGenerator.doGenerate(inputPath, outputPath, model);
 
         inputPath = new File(inputRootPath, "templates/java/generator/StaticGenerator.java.ftl").getAbsolutePath();
-        outputPath = new File(outputRootPath, "src/main/java/com/scc/generator/StaticFileGenerator.java").getAbsolutePath();
+        outputPath = new File(outputRootPath, "src/main/java/com/scc/generator/StaticGenerator.java").getAbsolutePath();
         DynamicGenerator.doGenerate(inputPath, outputPath, model);
 
         inputPath = new File(inputRootPath, "templates/java/model/DataModel.java.ftl").getAbsolutePath();
@@ -77,6 +77,10 @@ public class MainGenerator {
         inputPath = new File(inputRootPath, "templates/java/Main.java.ftl").getAbsolutePath();
         outputPath = new File(outputRootPath, "src/main/java/com/scc/Main.java").getAbsolutePath();
         DynamicGenerator.doGenerate(inputPath, outputPath, model);
+
+        inputPath = new File(inputRootPath, "templates/java/acm/MainTemplate.java.ftl").getAbsolutePath();
+        outputPath = new File(outputRootPath, "src/main/java/com/scc/acm/MainTemplate.java.ftl").getAbsolutePath();
+        StaticFileGenerator.copyFileByHutool(inputPath, outputPath);
 
         inputPath = new File(inputRootPath, "templates/pom.xml.ftl").getAbsolutePath();
         outputPath = new File(outputRootPath, "pom.xml").getAbsolutePath();
@@ -88,7 +92,7 @@ public class MainGenerator {
         JarGenerator.doGenerate(outputRootPath);
         // 封装脚本
         String shellOutputFilePath = outputRootPath + File.separator + "generator";
-        String jarName = String.format("%s-%s-jar-with-dependencies.jar", model.getName(), model.getVersion());
+        String jarName = String.format("%s-%s.jar", model.getName(), model.getVersion());
         String jarPath = "target/" + jarName;
         ScriptGenerator.doGenerate(shellOutputFilePath, jarPath);
 
