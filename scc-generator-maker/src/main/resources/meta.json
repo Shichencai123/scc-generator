@@ -6,13 +6,13 @@
   "author": "scc",
   "createTime": "2024-12-05",
   "fileConfig": {
-    "inputRootPath": "D:/projects/web/scc-generator/generated/acm-template-pro",
+    "inputRootPath": "D:/projects/web/scc-generator/scc-generator-maker/generated/acm-template-pro",
     "outputRootPath": "generated",
     "type": "dir",
     "files": [
       {
-        "inputPath": "src/com/scc/acm/MainTemplate.java.ftl",
-        "outputPath": "src/com/scc/acm/MainTemplate.java",
+        "inputPath": "src/main/java/com/scc/acm/MainTemplate.java.ftl",
+        "outputPath": "src/main/java/com/scc/acm/MainTemplate.java",
         "type": "file",
         "generateType": "dynamic"
       },

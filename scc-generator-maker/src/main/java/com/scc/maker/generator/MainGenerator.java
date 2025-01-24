@@ -86,6 +86,14 @@ public class MainGenerator {
         outputPath = new File(outputRootPath, "pom.xml").getAbsolutePath();
         DynamicGenerator.doGenerate(inputPath, outputPath, model);
 
+        inputPath = new File(projectPath, ".gitignore").getAbsolutePath();
+        outputPath = new File(outputRootPath, ".gitignore").getAbsolutePath();
+        StaticFileGenerator.copyFileByHutool(inputPath, outputPath);
+
+        inputPath = new File(projectPath, "readme.md").getAbsolutePath();
+        outputPath = new File(outputRootPath, "README.md").getAbsolutePath();
+        StaticFileGenerator.copyFileByHutool(inputPath, outputPath);
+
 
 
         // 构建 jar 包
