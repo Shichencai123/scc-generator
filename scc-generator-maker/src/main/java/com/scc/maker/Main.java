@@ -14,7 +14,9 @@ import java.io.IOException;
  * @Author: shicc
  */
 public class Main {
-    public static void main(String[] args) throws TemplateException, IOException {
-        //MainGenerator.doGenerate(MetaManager.getMetaObject());
+    public static void main(String[] args) throws TemplateException, IOException, InterruptedException {
+        MainGenerator mainGenerator = new MainGenerator();
+        mainGenerator.doGenerator();
+        System.out.println("================");
     }
 }

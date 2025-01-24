@@ -6,7 +6,8 @@
   "author": "scc",
   "createTime": "2024-12-05",
   "fileConfig": {
-    "inputRootPath": "D:/projects/web/scc-generator/scc-generator-maker/generated/acm-template-pro",
+    "sourceRootPath" : "D:/projects/web/scc-generator/scc-generator-demo-projects/acm-template-pro",
+    "inputRootPath": ".source/acm-template-pro",
     "outputRootPath": "generated",
     "type": "dir",
     "files": [
