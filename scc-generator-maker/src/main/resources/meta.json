@@ -59,7 +59,8 @@
         "fieldName" : "needGit",
         "type" : "boolean",
         "description" : "是否生成gitignore",
-        "defaultValue" : true
+        "defaultValue" : true,
+        "abbr": "n"
       }
     ]
   }

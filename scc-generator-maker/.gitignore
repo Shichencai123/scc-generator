@@ -2,6 +2,7 @@
 
 *~
 .idea
+*.iml
 scc-generator.iml
 scc-generator-basic.iml
 

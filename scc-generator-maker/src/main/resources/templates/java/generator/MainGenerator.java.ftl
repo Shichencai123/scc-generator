@@ -1,6 +1,7 @@
 package ${basePackage}.generator;
 
 import freemarker.template.TemplateException;
+import ${basePackage}.model.DataModel;
 
 import java.io.File;
 import java.io.IOException;
@@ -23,16 +24,30 @@ public class MainGenerator {
 
         String inputPath;
         String outputPath;
+    <#list modelConfig.models as modelInfo>
+        ${modelInfo.type} ${modelInfo.fieldName} = model.${modelInfo.fieldName};
+    </#list>
+
 	<#list fileConfig.files as fileInfo>
 
         <#if fileInfo.condition??>
+        if (${fileInfo.condition}) {
             inputPath = new File(inputRootPath, "${fileInfo.inputPath}").getAbsolutePath();
             outputPath = new File(outputRootPath, "${fileInfo.outputPath}").getAbsolutePath();
             <#if fileInfo.generateType == "static">
-                StaticGenerator.copyFilesByHutool(inputPath, outputPath);
+            StaticGenerator.copyFilesByHutool(inputPath, outputPath);
             <#else>
-                DynamicGenerator.doGenerate(inputPath, outputPath, model);
+            DynamicGenerator.doGenerate(inputPath, outputPath, model);
             </#if>
+        }
+        </#if>
+        <#else>
+        inputPath = new File(inputRootPath, "${fileInfo.inputPath}").getAbsolutePath();
+        outputPath = new File(outputRootPath, "${fileInfo.outputPath}").getAbsolutePath();
+        <#if fileInfo.generateType == "static">
+        StaticGenerator.copyFilesByHutool(inputPath, outputPath);
+        <#else>
+        DynamicGenerator.doGenerate(inputPath, outputPath, model);
         </#if>
 
 
