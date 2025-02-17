@@ -24,32 +24,43 @@ public class MainGenerator {
 
         String inputPath;
         String outputPath;
+
+<#macro generateFile indent fileInfo>
+${indent}inputPath = new File(inputRootPath, "${fileInfo.inputPath}").getAbsolutePath();
+${indent}outputPath = new File(outputRootPath, "${fileInfo.outputPath}").getAbsolutePath();
+<#if fileInfo.generateType == "static">
+${indent}StaticGenerator.copyFilesByHutool(inputPath, outputPath);
+<#else>
+${indent}DynamicGenerator.doGenerate(inputPath, outputPath, model);
+</#if>
+</#macro>
+
     <#list modelConfig.models as modelInfo>
         ${modelInfo.type} ${modelInfo.fieldName} = model.${modelInfo.fieldName};
     </#list>
 
 	<#list fileConfig.files as fileInfo>
-
+        <#if fileInfo.groupKey??>
         <#if fileInfo.condition??>
         if (${fileInfo.condition}) {
-            inputPath = new File(inputRootPath, "${fileInfo.inputPath}").getAbsolutePath();
-            outputPath = new File(outputRootPath, "${fileInfo.outputPath}").getAbsolutePath();
-            <#if fileInfo.generateType == "static">
-            StaticGenerator.copyFilesByHutool(inputPath, outputPath);
-            <#else>
-            DynamicGenerator.doGenerate(inputPath, outputPath, model);
-            </#if>
+            <#list fileConfig.files as fileInfo>
+            <@generateFile fileInfo = fileInfo indent = "            "/>
+            </#list>
         }
+        <#else>
+        <#list fileConfig.files as fileInfo>
+        <@generateFile fileInfo = fileInfo indent = "        "/>
+        </#list>
         </#if>
         <#else>
-        inputPath = new File(inputRootPath, "${fileInfo.inputPath}").getAbsolutePath();
-        outputPath = new File(outputRootPath, "${fileInfo.outputPath}").getAbsolutePath();
-        <#if fileInfo.generateType == "static">
-        StaticGenerator.copyFilesByHutool(inputPath, outputPath);
+        <#if fileInfo.condition??>
+        if (${fileInfo.condition}) {
+             <@generateFile fileInfo = fileInfo indent = "             "/>
+        }
         <#else>
-        DynamicGenerator.doGenerate(inputPath, outputPath, model);
+        <@generateFile fileInfo = fileInfo indent = "        "/>
         </#if>
-
+        </#if>
 
 	</#list>
     }

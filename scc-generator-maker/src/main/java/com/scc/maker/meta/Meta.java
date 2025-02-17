@@ -40,6 +40,8 @@ public class Meta {
         public static class FileInfo {
             private String inputPath;
             private String outputPath;
+            private String groupKey;
+            private String groupName;
             private String type;
             private String generateType;
             private String condition;
