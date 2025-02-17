@@ -12,10 +12,18 @@
     "type": "dir",
     "files": [
       {
-        "inputPath": "src/main/java/com/scc/acm/MainTemplate.java.ftl",
-        "outputPath": "src/main/java/com/scc/acm/MainTemplate.java",
-        "type": "file",
-        "generateType": "dynamic"
+        "type": "group",
+        "groupKey" : "needMainTemplate",
+        "groupName" : "是否需要主模板",
+        "condition" : "needGit",
+        "files": [
+          {
+            "inputPath": "src/main/java/com/scc/acm/MainTemplate.java.ftl",
+            "outputPath": "src/main/java/com/scc/acm/MainTemplate.java",
+            "type": "file",
+            "generateType": "dynamic"
+          }
+        ]
       },
       {
         "inputPath": ".gitignore",

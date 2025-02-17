@@ -45,6 +45,7 @@ public class Meta {
             private String type;
             private String generateType;
             private String condition;
+            private List<FileInfo> files;
         }
     }
 
