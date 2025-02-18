@@ -14,18 +14,21 @@
 
 示例命令：
 
-generator generate <#list modelConfig.models as modelInfo>-${modelInfo.abbr?c}</#list>
+generator generate <#list modelConfig.models as modelInfo><#if modelInfo.groupKey??><#else>-${modelInfo.abbr?c}</#if></#list>
 
 <#list modelConfig.models as modelInfo>
-${modelInfo?index + 1}）${modelInfo.fieldName}
-
+<#if modelInfo.groupKey??>
+<#else>
 类型：${modelInfo.type}
 
 描述：${modelInfo.description}
 
 默认值：${modelInfo.defaultValue?c}
 
-缩写： -${modelInfo.abbr}
+缩写： -${modelInfo.abbr?c}
+${modelInfo?index + 1}）${modelInfo.fieldName}
+
+</#if>
 
 
 </#list>

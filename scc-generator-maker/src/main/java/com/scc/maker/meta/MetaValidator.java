@@ -11,6 +11,7 @@ import com.scc.maker.meta.enums.ModelTypeEnum;
 import java.io.File;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @Date: 2025/1/24 15:15
@@ -57,6 +58,13 @@ public class MetaValidator {
         }
         for (Meta.ModelConfig.ModelInfo modelInfo : modelInfoList) {
             // 输出路径默认值
+            String groupKey = modelInfo.getGroupKey();
+            if (StrUtil.isNotEmpty(groupKey)) {
+                String allArgsStr = modelInfo.getModels().stream().map(subModelInfo -> String.format("\"--%s\"", subModelInfo.getFieldName()))
+                        .collect(Collectors.joining(", "));
+                modelInfo.setAllArgsStr(allArgsStr);
+                continue;
+            }
             String fieldName = modelInfo.getFieldName();
             if (StrUtil.isBlank(fieldName)) {
                 throw new MetaException("未填写 fieldName");
